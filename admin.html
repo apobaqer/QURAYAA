@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>إدارة الأخبار</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <h1>إدارة الأخبار</h1>
+  </header>
+
+  <main>
+    <!-- صفحة كلمة المرور -->
+    <section id="password-section">
+      <h2>أدخل كلمة المرور للوصول إلى صفحة الإدارة</h2>
+      <input type="password" id="passwordInput" placeholder="كلمة المرور" />
+      <button id="submitPasswordBtn">دخول</button>
+    </section>
+
+    <!-- المحتوى الخاص بالإدارة -->
+    <section id="admin-content" style="display: none;">
+      <!-- تغيير الخلفية -->
+      <section id="background-settings">
+        <h2>تغيير خلفية الموقع</h2>
+        <input type="file" id="backgroundInput" accept="image/*" />
+        <label for="backgroundSize">حجم الخلفية:</label>
+        <select id="backgroundSize">
+          <option value="cover">مناسب بالكامل (Cover)</option>
+          <option value="contain">مناسب للعرض (Contain)</option>
+          <option value="auto">حجم تلقائي (Auto)</option>
+        </select>
+        <button id="clearBackgroundBtn">إزالة الخلفية</button>
+      </section>
+
+      <!-- تغيير لون خانة اسم الموقع -->
+      <section id="site-name-color">
+        <h2>تغيير لون خانة اسم الموقع</h2>
+        <input type="color" id="siteNameColor" />
+      </section>
+
+      <!-- إدارة الأصناف -->
+      <section id="categories-management">
+        <h2>إدارة الأصناف</h2>
+        <input type="text" id="newCategory" placeholder="اسم الصنف الجديد" />
+        <button id="addCategoryBtn">إضافة صنف</button>
+        <ul id="categoriesList"></ul>
+      </section>
+
+      <!-- إضافة خبر جديد -->
+      <section id="news-form">
+        <h2>إضافة خبر جديد</h2>
+        <form id="uploadForm">
+          <label for="title">عنوان الخبر:</label>
+          <input type="text" id="title" required />
+
+          <label for="category">الصنف:</label>
+          <select id="category" required></select>
+
+          <label for="description">تفاصيل الخبر:</label>
+          <textarea id="description" required></textarea>
+
+          <label for="media">رفع الوسائط:</label>
+          <input type="file" id="media" accept="image/*, video/*, audio/*" multiple />
+
+          <button type="submit">نشر الخبر</button>
+        </form>
+      </section>
+
+      <!-- قائمة الأخبار -->
+      <section id="news-list">
+        <h2>الأخبار المنشورة</h2>
+        <div id="newsContainer"></div>
+      </section>
+    </section>
+  </main>
+
+  <script src="admin.js"></script>
+</body>
+</html>
