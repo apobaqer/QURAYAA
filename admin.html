@@ -12,67 +12,57 @@
   </header>
 
   <main>
-    <!-- صفحة كلمة المرور -->
-    <section id="password-section">
-      <h2>أدخل كلمة المرور للوصول إلى صفحة الإدارة</h2>
-      <input type="password" id="passwordInput" placeholder="كلمة المرور" />
-      <button id="submitPasswordBtn">دخول</button>
+    <!-- تغيير الخلفية -->
+    <section id="background-settings">
+      <h2>تغيير خلفية الموقع</h2>
+      <input type="file" id="backgroundInput" accept="image/*" />
+      <label for="backgroundSize">حجم الخلفية:</label>
+      <select id="backgroundSize">
+        <option value="cover">مناسب بالكامل (Cover)</option>
+        <option value="contain">مناسب للعرض (Contain)</option>
+        <option value="auto">حجم تلقائي (Auto)</option>
+      </select>
+      <button id="clearBackgroundBtn">إزالة الخلفية</button>
     </section>
 
-    <!-- المحتوى الخاص بالإدارة -->
-    <section id="admin-content" style="display: none;">
-      <!-- تغيير الخلفية -->
-      <section id="background-settings">
-        <h2>تغيير خلفية الموقع</h2>
-        <input type="file" id="backgroundInput" accept="image/*" />
-        <label for="backgroundSize">حجم الخلفية:</label>
-        <select id="backgroundSize">
-          <option value="cover">مناسب بالكامل (Cover)</option>
-          <option value="contain">مناسب للعرض (Contain)</option>
-          <option value="auto">حجم تلقائي (Auto)</option>
-        </select>
-        <button id="clearBackgroundBtn">إزالة الخلفية</button>
-      </section>
+    <!-- تغيير لون خانة اسم الموقع -->
+    <section id="site-name-color">
+      <h2>تغيير لون خانة اسم الموقع</h2>
+      <input type="color" id="siteNameColor" />
+    </section>
 
-      <!-- تغيير لون خانة اسم الموقع -->
-      <section id="site-name-color">
-        <h2>تغيير لون خانة اسم الموقع</h2>
-        <input type="color" id="siteNameColor" />
-      </section>
+    <!-- إدارة الأصناف -->
+    <section id="categories-management">
+      <h2>إدارة الأصناف</h2>
+      <input type="text" id="newCategory" placeholder="اسم الصنف الجديد" />
+      <button id="addCategoryBtn">إضافة صنف</button>
+      <ul id="categoriesList"></ul>
+    </section>
 
-      <!-- إدارة الأصناف -->
-      <section id="categories-management">
-        <h2>إدارة الأصناف</h2>
-        <input type="text" id="newCategory" placeholder="اسم الصنف الجديد" />
-        <button id="addCategoryBtn">إضافة صنف</button>
-        <ul id="categoriesList"></ul>
-      </section>
+    <!-- إضافة خبر جديد -->
+    <section id="news-form">
+      <h2>إضافة خبر جديد</h2>
+      <form id="uploadForm">
+        <label for="title">عنوان الخبر:</label>
+        <input type="text" id="title" required />
 
-      <!-- إضافة خبر جديد -->
-      <section id="news-form">
-        <h2>إضافة خبر جديد</h2>
-        <form id="uploadForm">
-          <label for="title">عنوان الخبر:</label>
-          <input type="text" id="title" required />
+        <label for="category">الصنف:</label>
+        <select id="category" required></select>
 
-          <label for="category">الصنف:</label>
-          <select id="category" required></select>
+        <label for="description">تفاصيل الخبر:</label>
+        <textarea id="description" required></textarea>
 
-          <label for="description">تفاصيل الخبر:</label>
-          <textarea id="description" required></textarea>
+        <label for="media">رفع الوسائط:</label>
+        <input type="file" id="media" accept="image/*, video/*, audio/*" multiple />
 
-          <label for="media">رفع الوسائط:</label>
-          <input type="file" id="media" accept="image/*, video/*, audio/*" multiple />
+        <button type="submit">نشر الخبر</button>
+      </form>
+    </section>
 
-          <button type="submit">نشر الخبر</button>
-        </form>
-      </section>
-
-      <!-- قائمة الأخبار -->
-      <section id="news-list">
-        <h2>الأخبار المنشورة</h2>
-        <div id="newsContainer"></div>
-      </section>
+    <!-- قائمة الأخبار -->
+    <section id="news-list">
+      <h2>الأخبار المنشورة</h2>
+      <div id="newsContainer"></div>
     </section>
   </main>
 
