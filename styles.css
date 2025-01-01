@@ -1,60 +1,42 @@
 body {
   font-family: Arial, sans-serif;
-  direction: rtl;
-  background-size: cover;
-  background-attachment: fixed;
-  margin: 0;
-  padding: 0;
+  padding: 20px;
 }
 
-header {
-  background: rgba(0, 0, 0, 0.7);
-  color: white;
-  padding: 15px;
+header h1 {
   text-align: center;
-}
-
-h1 {
-  margin: 0;
-}
-
-main {
-  padding: 15px;
-}
-
-#site-name {
-  text-align: center;
-}
-
-#categoriesList li {
-  margin: 5px 0;
-  padding: 5px;
-  background: #f1f1f1;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-button {
-  margin-left: 10px;
-  padding: 5px 10px;
-}
-
-#newsContainer .news-item {
-  background: rgba(255, 255, 255, 0.8);
+  background-color: #4CAF50;
   padding: 10px;
-  margin: 10px 0;
-  border-radius: 5px;
+  color: white;
 }
 
-#background-settings,
-#site-name-color,
-#categories-management {
+section {
   margin-bottom: 20px;
 }
 
-input[type="file"],
-input[type="color"],
-select {
+input, select, textarea, button {
   margin-bottom: 10px;
+}
+
+button {
+  padding: 5px 10px;
+}
+
+ul {
+  list-style-type: none;
+}
+
+ul li {
+  padding: 5px 0;
+}
+
+ul li button {
+  margin-left: 10px;
+  background-color: red;
+  color: white;
+}
+
+#newsContainer img {
+  max-width: 100px;
+  margin-top: 10px;
 }
