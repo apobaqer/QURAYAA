@@ -12,9 +12,11 @@ const mediaInput = document.getElementById('media');
 const uploadForm = document.getElementById('uploadForm');
 const newsContainer = document.getElementById('newsContainer');
 
-// قائمة الأصناف
-let categories = [];
-let newsItems = [];
+// استرجاع البيانات من localStorage إذا كانت موجودة
+let categories = JSON.parse(localStorage.getItem('categories')) || [];
+let newsItems = JSON.parse(localStorage.getItem('newsItems')) || [];
+let backgroundImage = localStorage.getItem('backgroundImage') || '';
+let siteNameColor = localStorage.getItem('siteNameColor') || '#ffffff';
 
 // إدارة الأصناف
 addCategoryBtn.addEventListener('click', () => {
@@ -22,6 +24,7 @@ addCategoryBtn.addEventListener('click', () => {
   if (newCategory && !categories.includes(newCategory)) {
     categories.push(newCategory);
     newCategoryInput.value = '';
+    localStorage.setItem('categories', JSON.stringify(categories));
     renderCategories();
     updateCategorySelect();
   }
@@ -37,6 +40,7 @@ function renderCategories() {
     deleteBtn.textContent = 'حذف';
     deleteBtn.addEventListener('click', () => {
       categories.splice(index, 1);
+      localStorage.setItem('categories', JSON.stringify(categories));
       renderCategories();
       updateCategorySelect();
     });
@@ -62,7 +66,9 @@ backgroundInput.addEventListener('change', (e) => {
   if (file) {
     const reader = new FileReader();
     reader.onload = function () {
-      document.body.style.backgroundImage = `url(${reader.result})`;
+      backgroundImage = reader.result;
+      localStorage.setItem('backgroundImage', backgroundImage);
+      document.body.style.backgroundImage = `url(${backgroundImage})`;
       document.body.style.backgroundSize = backgroundSizeSelect.value;
     };
     reader.readAsDataURL(file);
@@ -77,11 +83,14 @@ backgroundSizeSelect.addEventListener('change', () => {
 // إزالة الخلفية
 clearBackgroundBtn.addEventListener('click', () => {
   document.body.style.backgroundImage = '';
+  localStorage.removeItem('backgroundImage');
 });
 
 // تغيير لون خانة اسم الموقع
 siteNameColorInput.addEventListener('input', (e) => {
-  document.querySelector('header h1').style.backgroundColor = e.target.value;
+  siteNameColor = e.target.value;
+  localStorage.setItem('siteNameColor', siteNameColor);
+  document.querySelector('header h1').style.backgroundColor = siteNameColor;
 });
 
 // إضافة الخبر
@@ -94,6 +103,7 @@ uploadForm.addEventListener('submit', (e) => {
     media: Array.from(mediaInput.files).map(file => URL.createObjectURL(file)),
   };
   newsItems.push(newNews);
+  localStorage.setItem('newsItems', JSON.stringify(newsItems));
   renderNews();
   uploadForm.reset();
 });
@@ -127,3 +137,8 @@ function renderNews() {
 
 renderCategories();
 updateCategorySelect();
+
+// تطبيق التغييرات عند تحميل الصفحة
+document.body.style.backgroundImage = backgroundImage ? `url(${backgroundImage})` : '';
+document.body.style.backgroundSize = backgroundSizeSelect.value;
+document.querySelector('header h1').style.backgroundColor = siteNameColor;
