@@ -1,0 +1,81 @@
+/* إعدادات صفحة الإدارة */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  direction: rtl;
+  text-align: right;
+  background-color: #f9f9f9;
+}
+
+header {
+  background-color: #28a745;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+}
+
+main {
+  padding: 20px;
+}
+
+/* تغيير الخلفية */
+#background-settings,
+#categories-management,
+#news-form {
+  margin-bottom: 20px;
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: #fff;
+}
+
+input[type="file"],
+select,
+input[type="text"],
+textarea {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+button {
+  padding: 10px 15px;
+  margin: 5px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: #007bff;
+  color: white;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+/* قائمة الأخبار في صفحة الإعدادات */
+#newsContainerAdmin {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.news-item-admin {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: #fff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.news-item-admin button {
+  margin-top: 10px;
+  background-color: red;
+}
+
+.news-item-admin button:hover {
+  background-color: darkred;
+}
