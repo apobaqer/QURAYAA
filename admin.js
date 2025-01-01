@@ -97,6 +97,7 @@ siteNameColorInput.addEventListener('input', (e) => {
 uploadForm.addEventListener('submit', (e) => {
   e.preventDefault();
   const newNews = {
+    id: Date.now(),
     title: titleInput.value,
     category: categorySelect.value,
     description: descriptionInput.value,
@@ -111,7 +112,7 @@ uploadForm.addEventListener('submit', (e) => {
 // عرض الأخبار
 function renderNews() {
   newsContainer.innerHTML = '';
-  newsItems.forEach(news => {
+  newsItems.forEach((news, index) => {
     const newsDiv = document.createElement('div');
     const title = document.createElement('h3');
     title.textContent = news.title;
@@ -119,26 +120,21 @@ function renderNews() {
     category.textContent = `الصنف: ${news.category}`;
     const description = document.createElement('p');
     description.textContent = news.description;
-    const mediaContainer = document.createElement('div');
-    news.media.forEach(mediaUrl => {
-      const mediaElement = document.createElement('img');
-      mediaElement.src = mediaUrl;
-      mediaElement.alt = 'Media';
-      mediaContainer.appendChild(mediaElement);
+    const deleteBtn = document.createElement('button');
+    deleteBtn.textContent = 'حذف الخبر';
+    deleteBtn.addEventListener('click', () => {
+      newsItems.splice(index, 1);
+      localStorage.setItem('newsItems', JSON.stringify(newsItems));
+      renderNews();
     });
-
     newsDiv.appendChild(title);
     newsDiv.appendChild(category);
     newsDiv.appendChild(description);
-    newsDiv.appendChild(mediaContainer);
+    newsDiv.appendChild(deleteBtn);
     newsContainer.appendChild(newsDiv);
   });
 }
 
 renderCategories();
 updateCategorySelect();
-
-// تطبيق التغييرات عند تحميل الصفحة
-document.body.style.backgroundImage = backgroundImage ? `url(${backgroundImage})` : '';
-document.body.style.backgroundSize = backgroundSizeSelect.value;
-document.querySelector('header h1').style.backgroundColor = siteNameColor;
+renderNews();
