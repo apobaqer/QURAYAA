@@ -1,42 +1,172 @@
+/* إعدادات عامة للصفحة */
 body {
   font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  direction: rtl;
+  text-align: right;
+  background-color: #f4f4f4;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+/* الرأس (Header) */
+header {
+  background-color: #007bff;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* الأقسام الرئيسية */
+main {
   padding: 20px;
 }
 
-header h1 {
-  text-align: center;
-  background-color: #4CAF50;
-  padding: 10px;
-  color: white;
+/* العناوين */
+h1, h2, h3 {
+  margin: 10px 0;
 }
 
+/* الروابط */
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* الأزرار */
+button {
+  padding: 10px 15px;
+  margin: 5px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: #007bff;
+  color: white;
+  font-size: 16px;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+/* الحقول النصية والمربعات */
+input[type="text"],
+textarea,
+select,
+input[type="file"] {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+/* الأقسام */
 section {
+  margin-bottom: 20px;
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: #fff;
+}
+
+/* قائمة الأخبار */
+#newsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.news-item {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: #fff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.news-item h3 {
+  margin: 0;
+}
+
+.news-item p {
+  margin: 5px 0;
+}
+
+.news-item button {
+  margin-top: 10px;
+}
+
+/* رابط واتساب */
+#whatsapp-link {
+  text-align: center;
   margin-bottom: 20px;
 }
 
-input, select, textarea, button {
-  margin-bottom: 10px;
+#whatsapp-link a {
+  color: #25d366;
+  font-weight: bold;
+  font-size: 16px;
 }
 
-button {
-  padding: 5px 10px;
-}
-
+/* القوائم */
 ul {
-  list-style-type: none;
+  list-style: none;
+  padding: 0;
 }
 
-ul li {
-  padding: 5px 0;
+li {
+  padding: 10px;
+  border: 1px solid #ddd;
+  margin: 5px 0;
+  border-radius: 5px;
+  background-color: #f9f9f9;
 }
 
-ul li button {
-  margin-left: 10px;
-  background-color: red;
-  color: white;
+/* التقويم */
+#calendar {
+  margin: 20px 0;
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: #fff;
 }
 
-#newsContainer img {
-  max-width: 100px;
-  margin-top: 10px;
+/* الإعدادات */
+#background-settings,
+#categories-management,
+#news-form,
+#news-list {
+  margin-bottom: 20px;
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: #fff;
+}
+
+#background-settings select {
+  margin: 10px 0;
+}
+
+/* الهواتف المحمولة */
+@media screen and (max-width: 768px) {
+  header {
+    padding: 15px;
+  }
+
+  main {
+    padding: 10px;
+  }
+
+  button {
+    width: 100%;
+  }
 }
