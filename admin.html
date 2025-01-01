@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>إعدادات الموقع</title>
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="admin-style.css" />
 </head>
 <body>
   <header>
@@ -25,7 +25,7 @@
       <button id="clearBackgroundBtn">إزالة الخلفية</button>
     </section>
 
-    <!-- إدارة الأصناف -->
+    <!-- إضافة صنف جديد -->
     <section id="categories-management">
       <h2>إدارة الأصناف</h2>
       <input type="text" id="newCategory" placeholder="اسم الصنف الجديد" />
@@ -39,24 +39,20 @@
       <form id="uploadForm">
         <label for="title">عنوان الخبر:</label>
         <input type="text" id="title" required />
-
         <label for="category">الصنف:</label>
         <select id="category" required></select>
-
         <label for="description">تفاصيل الخبر:</label>
         <textarea id="description" required></textarea>
-
         <label for="media">رفع الوسائط:</label>
         <input type="file" id="media" accept="image/*, video/*, audio/*" multiple />
-
         <button type="submit">نشر الخبر</button>
       </form>
     </section>
 
-    <!-- عرض الأخبار مع خيار الحذف -->
+    <!-- قائمة الأخبار -->
     <section id="news-list">
-      <h2>إدارة الأخبار</h2>
-      <ul id="newsContainer"></ul>
+      <h2>الأخبار المنشورة</h2>
+      <div id="newsContainerAdmin"></div>
     </section>
   </main>
 
